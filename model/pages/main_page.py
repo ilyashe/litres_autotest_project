@@ -23,7 +23,7 @@ class MainPage:
 
     def open_profile(self):
         with allure.step("Открытие страницы профиля"):
-            browser.element('[data-testid=user-button]').click()
+            browser.element('[data-testid=header__profile-button]').perform(command.js.click)
             return self
 
     def user_should_be_authorized(self, user):
