@@ -25,7 +25,7 @@ class MainPage:
 
     def open_profile(self):
         with allure.step("Открытие страницы профиля"):
-            browser.element('[data-testid=header__profile-button]').click()
+            browser.element('[data-testid=header__profile-button]').perform(command.js.click)
             return self
 
     def close_modal(self):
