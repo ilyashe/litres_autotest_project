@@ -1,4 +1,6 @@
-from selene import browser, have
+import time
+
+from selene import browser, have, command, be
 import allure
 
 
@@ -23,7 +25,13 @@ class MainPage:
 
     def open_profile(self):
         with allure.step("Открытие страницы профиля"):
-            browser.element('[data-testid=user-button]').click()
+            browser.element('[data-testid=header__profile-button]').click()
+            return self
+
+    def close_modal(self):
+        with allure.step("Закрытие модального окна"):
+            time.sleep(5)
+            browser.all('#modal').perform(command.js.remove)
             return self
 
     def user_should_be_authorized(self, user):
