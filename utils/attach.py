@@ -8,7 +8,7 @@ def add_screenshot(browser):
 
 # логи
 def add_logs(browser):
-    log = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
+    log = ''.join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
     allure.attach(log, 'browser_logs', AttachmentType.TEXT, '.log')
 
 # html-код страницы
@@ -18,7 +18,7 @@ def add_html(browser):
 
 # скринкаст
 def add_video(browser, selenoid_url):
-    video_url = f"https://{selenoid_url}/video/" + browser.driver.session_id + ".mp4"
+    video_url = f'https://{selenoid_url}/video/' + browser.driver.session_id + '.mp4'
     html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
            + video_url \
            + "' type='video/mp4'></video></body></html>"
