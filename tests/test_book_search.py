@@ -7,8 +7,8 @@ from model.pages.search_page import search_page
 
 
 @allure.epic('Поиск книги')
-@allure.label("owner", "Ilya Shebanov")
-@allure.feature("Проверка поиска книги")
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка поиска книги')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_search_book():

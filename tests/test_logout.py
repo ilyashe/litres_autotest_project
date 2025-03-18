@@ -8,16 +8,16 @@ import os
 
 
 @allure.epic('Логаут')
-@allure.label("owner", "Ilya Shebanov")
-@allure.feature("Проверка логаута юзера")
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка логаута юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_logout():
     user = User(
         first_name='Andrey',
         last_name='Sokolov',
-        email=os.getenv("EMAIL"),
-        password=os.getenv("PASSWORD")
+        email=os.getenv('EMAIL'),
+        password=os.getenv('PASSWORD')
     )
     main_page.open()
 

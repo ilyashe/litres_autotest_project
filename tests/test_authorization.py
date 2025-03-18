@@ -8,16 +8,16 @@ import os
 
 
 @allure.epic('Авторизация')
-@allure.label("owner", "Ilya Shebanov")
-@allure.feature("Проверка авторизации юзера")
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_registered_user():
     user = User(
         first_name='Andrey',
         last_name='Sokolov',
-        email=os.getenv("EMAIL"),
-        password=os.getenv("PASSWORD")
+        email=os.getenv('EMAIL'),
+        password=os.getenv('PASSWORD')
     )
     main_page.open()
 
@@ -32,16 +32,16 @@ def test_authorization_registered_user():
 
 
 @allure.epic('Авторизация')
-@allure.label("owner", "Ilya Shebanov")
-@allure.feature("Проверка авторизации юзера")
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_unregistered_user():
     user = User(
         first_name='Andrey',
         last_name='Sokolov',
-        email=os.getenv("UNREGISTERED_EMAIL"),
-        password=os.getenv("PASSWORD")
+        email=os.getenv('UNREGISTERED_EMAIL'),
+        password=os.getenv('PASSWORD')
     )
     main_page.open()
 
@@ -53,16 +53,16 @@ def test_authorization_unregistered_user():
 
 
 @allure.epic('Авторизация')
-@allure.label("owner", "Ilya Shebanov")
-@allure.feature("Проверка авторизации юзера")
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_registered_user_with_wrong_password():
     user = User(
         first_name='Andrey',
         last_name='Sokolov',
-        email=os.getenv("EMAIL"),
-        password=os.getenv("WRONG_PASSWORD")
+        email=os.getenv('EMAIL'),
+        password=os.getenv('WRONG_PASSWORD')
     )
     main_page.open()
 
