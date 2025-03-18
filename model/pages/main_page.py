@@ -28,6 +28,11 @@ class MainPage:
             browser.element('[data-testid=header__profile-button]').perform(command.js.click)
             return self
 
+    def open_basket(self):
+        with allure.step('Открытие страницы корзины'):
+            browser.element('[data-testid=tab-basket]').click()
+            return self
+
     def search_book(self, book):
         with allure.step('Поиск книги'):
             browser.element('[data-testid=search__input]').type(f'{book.author} {book.title}')
@@ -36,7 +41,9 @@ class MainPage:
 
     def close_modal(self):
         with allure.step('Закрытие модального окна'):
-            time.sleep(5)
+            browser.all('#modal').with_(timeout=10).wait_until(
+                have.size_greater_than_or_equal(1)
+            )
             browser.all('#modal').perform(command.js.remove)
             return self
 

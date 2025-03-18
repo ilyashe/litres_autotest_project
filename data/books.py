@@ -5,3 +5,4 @@ import dataclasses
 class Book:
     title: str
     author: str
+    price: int = None

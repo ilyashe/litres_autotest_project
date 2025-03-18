@@ -1,10 +1,10 @@
-<h1> Проект по тестированию сервиса электронных и аудиокниг "Литрес"</h1>
+# Проект по тестированию сервиса электронных и аудиокниг "Литрес"
 
-> <a target="_blank" href="https://www.litres.ru">Ссылка на сайт</a>
+> [Ссылка на сайт](https://www.litres.ru)
 
 ![This is an image](media/images/litres_main_page.png)
 
-<h3> Список проверок, реализованных в автотестах:</h3>
+### Список проверок, реализованных в автотестах:
 
 ### UI-тесты
 - [x] Авторизация пользователя(успешная и неуспешная)
@@ -29,17 +29,17 @@
 
 ----
 ### Удаленный запуск автотестов выполняется на сервере Jenkins
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/litres_autotest_project/">Ссылка на проект в Jenkins</a>
+> [Ссылка на проект в Jenkins](https://jenkins.autotests.cloud/job/litres_autotest_project/)
 
 #### Параметры сборки
 
-* `browser-version` - версия браузера (браузер `Chrome`)
-* `comment` - комментарий
+- `browser-version` - версия браузера (браузер `Chrome`)
+- `comment` - комментарий
 
 
 #### Для запуска автотестов в Jenkins
 
-1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/litres_autotest_project/">проект</a>
+1. Открыть [проект](https://jenkins.autotests.cloud/job/litres_autotest_project/)
 2. Выбрать пункт `Build with Parameters`
 3. Указать версию браузера
 4. Указать комментарий
@@ -54,16 +54,12 @@
 ![This is an image](media/images/allure_report_overview.png)
 #### Список тест кейсов
 ![This is an image](media/images/allure_report.png)
-#### Пример отчета о прохождении ui-теста
+#### Пример отчета о прохождении теста
 ![This is an image](media/images/example_test_ui_allure.png)
-#### Пример отчета о прохождении api-теста
-![This is an image](media/images/example_test_api_allure.png)
-#### Пример отчета о прохождении mobile-теста
-![This is an image](media/images/example_test_mobile_allure.png)
 
 ----
 ### Полная статистика по прохождению тестпланов, отчёты и приложения к ним хранятся в Allure TestOps
-> <a target="_blank" href="https://allure.autotests.cloud/project/3942/dashboards">Ссылка на проект в AllureTestOps</a> (запрос доступа `admin@qa.guru`)
+> [Ссылка на проект в AllureTestOps](https://allure.autotests.cloud/project/3942/dashboards) (запрос доступа `admin@qa.guru`)
 
 #### Тест-планы проекта
 ![This is an image](media/images/allure_TestOps_test_plans.png)
@@ -85,7 +81,7 @@
 
 ----
 ### Интеграция с Jira
-> <a target="_blank" href="https://jira.autotests.cloud/browse/HOMEWORK-1045">Ссылка на проект в Jira</a>
+> [Ссылка на проект в Jira](https://jira.autotests.cloud/browse/HOMEWORK-1045)
 
 ![This is an image](media/images/jira.png)
 
@@ -96,6 +92,3 @@
 ----
 ### Пример видео прохождения ui-автотеста
 ![autotest_gif](media/images/autotest.gif)
-
-### Пример видео прохождения mobile-автотеста
-![autotest_gif](media/images/autotest_mobile.gif)
