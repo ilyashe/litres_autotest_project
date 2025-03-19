@@ -26,6 +26,7 @@ def test_adding_book_to_basket():
     main_page.search_book(book)
     search_page.open_book()
     tools.open_new_window(window_number=1)
+    main_page.close_modal()
     book_page.add_book_to_basket()
     main_page.close_modal()
     main_page.open_basket()

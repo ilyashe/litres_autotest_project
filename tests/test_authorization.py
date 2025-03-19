@@ -25,6 +25,7 @@ def test_authorization_registered_user():
     main_page.fill_email(user)
     main_page.fill_password(user)
     main_page.open_profile()
+    main_page.close_modal()
     profile_page.open_profile_edit()
 
     #THEN
