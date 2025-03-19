@@ -102,7 +102,7 @@ pytest -s . --browser_version=128.0
 
 ### Интеграция с Jira
 
-> [Ссылка на проект в Jira](https://jira.autotests.cloud/browse/HOMEWORK-1045)
+> [Ссылка на проект в Jira](https://jira.autotests.cloud/browse/HOMEWORK-1421)
 
 ![This is an image](media/images/jira.png)
 
