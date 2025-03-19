@@ -8,8 +8,8 @@ class BookPage:
             if browser.element('[data-testid=book__addToCartButton]').matching(be.visible):
                 browser.element('[data-testid=book__addToCartButton]').perform(command.js.click)
             else:
-                browser.element('[data-testid="book-sale-block__PPD--wrapper"]').click()
-                browser.element('[data-testid=book__addToCartButton]').perform(command.js.click)
+                browser.element('[data-testid="book-sale-block__PPD--wrapper"]').perform(command.js.click)
+                browser.element('[data-testid=book__addToCartButton]').click()
             return self
 
     def should_book_with_price(self, book):
