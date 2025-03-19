@@ -80,28 +80,28 @@ pytest -s . --browser_version=128.0
 
 ----
 ### Полная статистика хранится в Allure TestOps
-> [Ссылка на проект в AllureTestOps](https://allure.autotests.cloud/project/3942/dashboards) (запрос доступа `admin@qa.guru`)
+> [Ссылка на проект в AllureTestOps](https://allure.autotests.cloud/project/4670/dashboards)
 
-#### Тест-планы проекта
-![This is an image](media/images/allure_TestOps_test_plans.png)
+#### Дашборд с общими показателями тестовых прогонов
 
-#### Общий список всех кейсов, имеющихся в системе (без разделения по тест-планам и виду выполнения тестирования)
-![This is an image](media/images/allure_TestOps_test_cases.png)
-
-#### Пример отчёта выполнения одного из автотестов
-![This is an image](media/images/example_autotests_allure_TestOps.png)
-
-#### Тестовые артефакты
-![This is an image](media/images/allure_TestOps_attachment.png)
-
-#### Пример dashboard с общими результатами тестирования
-![This is an image](media/images/allure_TestOps_dashboard.png)
+![This is an image](media/images/allure_testops_dashboards.png)
 
 #### История запуска тестовых наборов
-![This is an image](media/images/allure_TestOps_launches.png)
+
+![This is an image](media/images/allure_testops_launches.png)
+
+#### Тест кейсы
+
+![This is an image](media/images/allure_testops_test_cases.png)
+
+#### Тестовые артефакты
+
+![This is an image](media/images/allure_testops_attachments.png)
 
 ----
+
 ### Интеграция с Jira
+
 > [Ссылка на проект в Jira](https://jira.autotests.cloud/browse/HOMEWORK-1045)
 
 ![This is an image](media/images/jira.png)
