@@ -9,7 +9,7 @@ from utils import attach
 def pytest_addoption(parser):
     parser.addoption(
         '--browser_version', help='Версия браузера, в которой будут запущены тесты',
-        default='100.0'
+        default='128.0'
     )
 
 @pytest.fixture(scope='session', autouse=True)
