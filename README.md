@@ -28,13 +28,36 @@
 - Настроена интеграция `Allure TestOps` с `Jira`
 
 ----
+### Локальный запуск
+> Перед запуском в корне проекта создать файл .env с содержимым:
+```
+SELENOID_LOGIN=user1
+SELENOID_PASS=1234
+SELENOID_URL=selenoid.autotests.cloud
+
+EMAIL={email of your test litres account}
+PASSWORD={password of your test litres account}
+
+UNREGISTERED_EMAIL={any unregistered email on litres}
+WRONG_PASSWORD=wrongpassword
+```
+
+> Для локального запуска необходимо выполнить (ключ выбора версии --browser-version не обязателен):
+```
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pytest -s . --browser_version=128.0
+```
+
+----
 ### Удаленный запуск автотестов выполняется на сервере Jenkins
 > [Ссылка на проект в Jenkins](https://jenkins.autotests.cloud/job/litres_autotest_project/)
 
 #### Параметры сборки
 
-- `browser-version` - версия браузера (браузер `Chrome`)
-- `comment` - комментарий
+- `BROWSER_VERSION` - версия браузера (браузер `Chrome`)
+- `COMMENT` - комментарий
 
 
 #### Для запуска автотестов в Jenkins
@@ -52,13 +75,11 @@
 
 #### Общие результаты
 ![This is an image](media/images/allure_report_overview.png)
-#### Список тест кейсов
-![This is an image](media/images/allure_report.png)
-#### Пример отчета о прохождении теста
-![This is an image](media/images/example_test_ui_allure.png)
+#### Список тест кейсов и пример отчета о прохождении теста
+![This is an image](media/images/allure_report_behaviors.png)
 
 ----
-### Полная статистика по прохождению тестпланов, отчёты и приложения к ним хранятся в Allure TestOps
+### Полная статистика хранится в Allure TestOps
 > [Ссылка на проект в AllureTestOps](https://allure.autotests.cloud/project/3942/dashboards) (запрос доступа `admin@qa.guru`)
 
 #### Тест-планы проекта
@@ -87,7 +108,9 @@
 
 ----
 ### Оповещение о результатах прогона тестов в Telegram
-![This is an image](media/images/tg_notification.png)
+> [Ссылка на канал в Telegram](https://t.me/litres_autotest)
+
+![This is an image](media/images/telegram_report.png)
 
 ----
 ### Пример видео прохождения ui-автотеста
