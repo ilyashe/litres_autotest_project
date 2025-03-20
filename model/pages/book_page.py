@@ -5,10 +5,10 @@ import allure
 class BookPage:
     def add_book_to_basket(self):
         with allure.step('Добавление книги в корзину'):
-            if browser.element('[data-testid=book__addToCartButton]').matching(be.visible):
-                browser.element('[data-testid=book__addToCartButton]').perform(command.js.click)
+            if browser.element('[data-testid=book__addToCartButton]').with_(timeout=5).matching(be.present):
+                browser.element('[data-testid=book__addToCartButton]').click()
             else:
-                browser.element('[data-testid="book-sale-block__PPD--wrapper"]').perform(command.js.click)
+                browser.element('[data-testid="book-sale-block__PPD--wrapper"]').click()
                 browser.element('[data-testid=book__addToCartButton]').click()
             return self
 
