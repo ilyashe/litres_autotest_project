@@ -26,6 +26,7 @@ def test_logout():
     main_page.fill_password(user)
     main_page.open_profile()
     main_page.close_modal()
+    main_page.close_modal()
     profile_page.logout()
 
     #THEN
