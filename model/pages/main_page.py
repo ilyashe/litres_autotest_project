@@ -41,7 +41,7 @@ class MainPage:
 
     def close_modal(self):
         with allure.step('Закрытие модального окна'):
-            browser.all('#modal').with_(timeout=10).wait_until(
+            browser.all('#modal').with_(timeout=5).wait_until(
                 have.size_greater_than_or_equal(1)
             )
             browser.all('#modal').perform(command.js.remove)
