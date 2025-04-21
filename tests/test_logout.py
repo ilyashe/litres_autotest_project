@@ -30,3 +30,17 @@ def test_logout():
 
     #THEN
     main_page.user_should_be_unauthorized()
+
+@allure.epic('Логаут')
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка логаута юзера с API авторизацией')
+@allure.tag('web')
+@allure.severity(Severity.CRITICAL)
+def test_logout_with_api_auth():
+
+    main_page.open_by_auth_user()
+    main_page.open_profile()
+    profile_page.logout()
+
+    #THEN
+    main_page.user_should_be_unauthorized()

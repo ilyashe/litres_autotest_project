@@ -1,12 +1,19 @@
-import time
-
 from selene import browser, have, command
 import allure
+from utils import tools
 
 
 class MainPage:
     def open(self):
         with allure.step('Открытие главной страницы'):
+            browser.open('')
+            return self
+
+    def open_by_auth_user(self):
+        with allure.step('Открытие главной страницы под авторизованным юзером'):
+            cookie = tools.auth_cookie_via_api()
+            browser.open('')
+            browser.driver.add_cookie({'name': 'SID', 'value': cookie})
             browser.open('')
             return self
 

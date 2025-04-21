@@ -41,3 +41,21 @@ def test_search_non_existent_book():
 
     #THEN
     search_page.should_find_empty_result()
+
+@allure.epic('Поиск книги')
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка поиска книги под авторизованным юзером')
+@allure.tag('web')
+@allure.severity(Severity.NORMAL)
+def test_search_book_by_auth_user():
+    book = Book(
+        title='Пустые поезда 2022 года',
+        author='Дмитрий Данилов'
+    )
+    main_page.open_by_auth_user()
+
+    #WHEN
+    main_page.search_book(book)
+
+    #THEN
+    search_page.should_find_book_with_title(book)
