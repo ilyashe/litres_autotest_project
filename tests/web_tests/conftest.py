@@ -6,19 +6,13 @@ from selenium.webdriver.chrome.options import Options
 import os
 from utils import attach
 
-def pytest_addoption(parser):
-    parser.addoption(
-        '--browser_version', help='Версия браузера, в которой будут запущены тесты',
-        default='128.0'
-    )
-
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
 
 @pytest.fixture(scope='function', autouse=True)
-def setting_browser(request):
-    browser_version = request.config.getoption('--browser_version')
+def setting_browser():
+    browser_version = os.getenv('browser_version', '128.0')
     browser.config.base_url = 'https://www.litres.ru/'
     browser.config.window_height = 1080
     browser.config.window_width = 1920
