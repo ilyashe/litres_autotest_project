@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from model.api_helpers import helpers
+from model.api_helpers import basket, get_from_result
 
 @allure.epic('Статус корзины')
 @allure.label('owner', 'Ilya Shebanov')
@@ -10,10 +10,10 @@ from model.api_helpers import helpers
 @allure.severity(Severity.NORMAL)
 def test_empty_basket_status():
     #WHEN
-    result = helpers.get_basket_status()
+    result = basket.get_basket_status()
 
     #THEN
-    helpers.get_basket_status_basket_should_be_empty(result)
+    basket.get_basket_status_basket_should_be_empty(result)
 
 @allure.epic('Статус корзины')
 @allure.label('owner', 'Ilya Shebanov')
@@ -28,9 +28,9 @@ def test_basket_with_book_status():
     )
 
     #WHEN
-    put_result = helpers.put_add_book_to_basket(book)
-    bsk_cookie = helpers.get_bsk_cookie_from_api(put_result)
-    status_result = helpers.get_basket_status(bsk_cookie)
+    put_result = basket.put_add_book_to_basket(book)
+    bsk_cookie = get_from_result.get_bsk_cookie_from_api(put_result)
+    status_result = basket.get_basket_status(bsk_cookie)
 
     #THEN
-    helpers.get_basket_status_basket_should_be_with_book(status_result, book)
+    basket.get_basket_status_basket_should_be_with_book(status_result, book)

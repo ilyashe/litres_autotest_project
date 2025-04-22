@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from model.api_helpers import helpers
+from model.api_helpers import favorite
 
 @allure.epic('Добавление книги в избранное')
 @allure.label('owner', 'Ilya Shebanov')
@@ -16,7 +16,7 @@ def test_adding_book_to_favorite():
     )
 
     #WHEN
-    result = helpers.put_add_book_to_favorite(book)
+    result = favorite.put_add_book_to_favorite(book)
 
     #THEN
-    helpers.put_add_book_to_favorite_should_be_successful(result)
+    favorite.put_add_book_to_favorite_should_be_successful(result)

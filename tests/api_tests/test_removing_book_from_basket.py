@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from model.api_helpers import helpers
+from model.api_helpers import basket, get_from_result
 
 @allure.epic('Удаление книги из корзины')
 @allure.label('owner', 'Ilya Shebanov')
@@ -16,8 +16,8 @@ def test_removing_book_from_basket():
     )
 
     #WHEN
-    put_result = helpers.put_add_book_to_basket(book)
-    bsk_cookie = helpers.get_bsk_cookie_from_api(put_result)
-    delete_result = helpers.put_remove_book_from_basket(book, bsk_cookie)
+    put_result = basket.put_add_book_to_basket(book)
+    bsk_cookie = get_from_result.get_bsk_cookie_from_api(put_result)
+    delete_result = basket.put_remove_book_from_basket(book, bsk_cookie)
     #THEN
-    helpers.put_remove_book_from_basket_should_be_successful(delete_result)
+    basket.put_remove_book_from_basket_should_be_successful(delete_result)

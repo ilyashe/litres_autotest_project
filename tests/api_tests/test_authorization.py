@@ -1,8 +1,9 @@
 import allure
 from allure_commons.types import Severity
+
 from data.users import User
 import os
-from model.api_helpers import helpers
+from model.api_helpers import auth
 
 @allure.epic('Авторизация')
 @allure.label('owner', 'Ilya Shebanov')
@@ -18,10 +19,10 @@ def test_authorization_registered_user():
     )
 
     #WHEN
-    result = helpers.post_auth(user)
+    result = auth.post_auth(user)
 
     #THEN
-    helpers.post_auth_user_should_be_authorized(result)
+    auth.post_auth_user_should_be_authorized(result)
 
 @allure.epic('Авторизация')
 @allure.label('owner', 'Ilya Shebanov')
@@ -37,7 +38,7 @@ def test_authorization_unregistered_user():
     )
 
     #WHEN
-    result = helpers.post_auth(user)
+    result = auth.post_auth(user)
 
     #THEN
-    helpers.post_auth_user_should_not_be_authorized(result)
+    auth.post_auth_user_should_not_be_authorized(result)
