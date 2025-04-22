@@ -24,7 +24,7 @@ def log_to_allure_api(result):
         extension='txt'
     )
     allure.attach(
-        body=result.request.body,
+        body=result.request.body if result.request.body else '[Empty]',
         name='Request Body',
         attachment_type=AttachmentType.TEXT,
         extension='txt'
@@ -38,7 +38,7 @@ def log_to_allure_api(result):
     )
 
     allure.attach(
-        body=json.dumps(result.json(), indent=4, ensure_ascii=True),
+        body=json.dumps(result.json(), indent=4, ensure_ascii=True) if result.text else '[Empty]',
         name='Response',
         attachment_type=AttachmentType.JSON,
         extension='json'
