@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
-from utils import attach
+from utils import web_attach
 
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
@@ -40,9 +40,9 @@ def setting_browser():
 
     yield
 
-    attach.add_screenshot(browser)
-    attach.add_logs(browser)
-    attach.add_html(browser)
-    attach.add_video(browser, selenoid_url)
+    web_attach.add_screenshot(browser)
+    web_attach.add_logs(browser)
+    web_attach.add_html(browser)
+    web_attach.add_video(browser, selenoid_url)
 
     browser.quit()
