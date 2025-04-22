@@ -24,7 +24,7 @@ def log_to_allure_api(result):
         extension='txt'
     )
     allure.attach(
-        body=result.request.body if result.request.body else '[Empty]',
+        body=mask_sensitive_data(result.request.body) if result.request.body else '[Empty]',
         name='Request Body',
         attachment_type=AttachmentType.TEXT,
         extension='txt'
@@ -58,7 +58,7 @@ def log_to_console_api(result):
             Method: {result.request.method}
             URL: {result.request.url}
             Body:
-            {result.request.body}
+            {mask_sensitive_data(result.request.body)}
 
             ==== HTTP Response ====
             Status Code: {result.status_code}
@@ -70,3 +70,14 @@ def log_to_console_api(result):
             '''
 
     logging.info(log_message)
+
+def mask_sensitive_data(body):
+    try:
+        body_dict = json.loads(body)
+        if 'login' in body_dict:
+            body_dict['login'] = '********'
+        if 'password' in body_dict:
+            body_dict['password'] = '********'
+        return json.dumps(body_dict, indent=4, ensure_ascii=False)
+    except (json.JSONDecodeError, TypeError):
+        return body

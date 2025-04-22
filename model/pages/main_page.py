@@ -1,6 +1,6 @@
 from selene import browser, have, command
 import allure
-from utils import tools
+from model.api_helpers import auth, get_from_result
 
 
 class MainPage:
@@ -9,11 +9,12 @@ class MainPage:
             browser.open('')
             return self
 
-    def open_by_auth_user(self):
+    def open_by_auth_user(self, user):
         with allure.step('Открытие главной страницы под авторизованным юзером'):
-            cookie = tools.auth_cookie_via_api()
+            result = auth.post_auth(user)
+            session_id = get_from_result.get_session_id_from_api(result)
             browser.open('')
-            browser.driver.add_cookie({'name': 'SID', 'value': cookie})
+            browser.driver.add_cookie({'name': 'SID', 'value': session_id})
             browser.open('')
             return self
 

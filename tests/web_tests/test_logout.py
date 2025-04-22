@@ -37,8 +37,14 @@ def test_logout():
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_logout_with_api_auth():
+    user = User(
+        first_name='Andrey',
+        last_name='Sokolov',
+        email=os.getenv('EMAIL'),
+        password=os.getenv('PASSWORD')
+    )
 
-    main_page.open_by_auth_user()
+    main_page.open_by_auth_user(user)
     main_page.open_profile()
     profile_page.logout()
 
