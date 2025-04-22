@@ -16,7 +16,7 @@ def test_adding_book_to_favorite():
     )
 
     #WHEN
-    result= helpers.put_add_book_to_favorite(book)
+    result = helpers.put_add_book_to_favorite(book)
 
     #THEN
     helpers.put_add_book_to_favorite_should_be_successful(result)

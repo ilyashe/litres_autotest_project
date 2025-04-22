@@ -1,6 +1,5 @@
 import allure
 from allure_commons.types import Severity
-from requests import session
 
 from data.books import Book
 from model.api_helpers import helpers

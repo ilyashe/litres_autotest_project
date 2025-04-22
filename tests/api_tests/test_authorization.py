@@ -18,7 +18,7 @@ def test_authorization_registered_user():
     )
 
     #WHEN
-    result= helpers.post_auth(user)
+    result = helpers.post_auth(user)
 
     #THEN
     helpers.post_auth_user_should_be_authorized(result)
@@ -37,7 +37,7 @@ def test_authorization_unregistered_user():
     )
 
     #WHEN
-    result= helpers.post_auth(user)
+    result = helpers.post_auth(user)
 
     #THEN
     helpers.post_auth_user_should_not_be_authorized(result)
