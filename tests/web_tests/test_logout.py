@@ -2,8 +2,8 @@ import allure
 from allure_commons.types import Severity
 
 from data.users import User
-from model.pages.main_page import main_page
-from model.pages.profile_page import profile_page
+from model.pages.web_pages.main_page import main_page
+from model.pages.web_pages.profile_page import profile_page
 import os
 
 
