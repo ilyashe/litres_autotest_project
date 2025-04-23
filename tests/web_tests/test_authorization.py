@@ -6,6 +6,10 @@ from model.pages.web_pages.profile_page import profile_page
 import os
 
 
+pytestmark = [
+    allure.label("layer", 'web')
+]
+
 @allure.epic('Авторизация')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка авторизации юзера')

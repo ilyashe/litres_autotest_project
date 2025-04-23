@@ -5,6 +5,10 @@ import os
 from model.api_helpers import auth
 
 
+pytestmark = [
+    allure.label("layer", 'api')
+]
+
 @allure.epic('Авторизация')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка авторизации юзера')

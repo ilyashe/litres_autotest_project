@@ -4,6 +4,10 @@ from data.books import Book
 from model.api_helpers import favorite
 
 
+pytestmark = [
+    allure.label("layer", 'api')
+]
+
 @allure.epic('Добавление книги в избранное')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка добавления книги в избранное')

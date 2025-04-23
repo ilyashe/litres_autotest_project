@@ -8,6 +8,10 @@ from model.pages.web_pages.basket_page import basket_page
 from utils import tools
 
 
+pytestmark = [
+    allure.label("layer", 'web')
+]
+
 @allure.epic('Добавление книги в корзину')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка добавления книги в корзину')

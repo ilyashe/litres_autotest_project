@@ -5,6 +5,10 @@ from model.pages.web_pages.main_page import main_page
 from model.pages.web_pages.search_page import search_page
 
 
+pytestmark = [
+    allure.label("layer", 'web')
+]
+
 @allure.epic('Поиск книги')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка поиска книги')

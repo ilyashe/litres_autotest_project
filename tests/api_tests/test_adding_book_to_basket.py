@@ -4,8 +4,11 @@ from data.books import Book
 from model.api_helpers import basket
 
 
+pytestmark = [
+    allure.label("layer", 'api')
+]
+
 @allure.epic('Добавление книги в корзину')
-@allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка добавления книги в корзину')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
