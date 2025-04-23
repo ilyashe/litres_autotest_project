@@ -1,9 +1,16 @@
+import allure
+from allure_commons.types import Severity
 from data.books import Book
 from model.pages.mobile_pages.main_page import main_page
 from model.pages.mobile_pages.search_result_page import search_result_page
 from model.pages.mobile_pages.book_page import book_page
 from model.pages.mobile_pages.favorite_page import favorite_page
 
+@allure.epic('Добавление книги в избранное')
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка добавления книги в избранное')
+@allure.tag('mobile')
+@allure.severity(Severity.NORMAL)
 def test_adding_book_to_favorite(android_management):
     book = Book(
         title='Пустые поезда 2022 года',

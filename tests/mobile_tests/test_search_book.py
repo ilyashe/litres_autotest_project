@@ -1,7 +1,14 @@
+import allure
+from allure_commons.types import Severity
 from data.books import Book
 from model.pages.mobile_pages.main_page import main_page
 from model.pages.mobile_pages.search_result_page import search_result_page
 
+@allure.epic('Поиск книги')
+@allure.label('owner', 'Ilya Shebanov')
+@allure.feature('Проверка поиска книги')
+@allure.tag('mobile')
+@allure.severity(Severity.NORMAL)
 def test_search_book(android_management):
     book = Book(
         title='Пустые поезда 2022 года',
