@@ -11,9 +11,9 @@ pytestmark = [
     allure.label("layer", 'mobile')
 ]
 
-@allure.epic('Добавление книги в избранное')
+@allure.epic('Добавление книги в избранное (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в избранное')
+@allure.feature('Проверка добавления книги в избранное (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_to_favorite(android_management):

@@ -8,9 +8,9 @@ pytestmark = [
     allure.label("layer", 'mobile')
 ]
 
-@allure.epic('Изменение языка интерфейса')
+@allure.epic('Изменение языка интерфейса (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка изменения языка интерфейса')
+@allure.feature('Проверка изменения языка интерфейса (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_changing_language(android_management):

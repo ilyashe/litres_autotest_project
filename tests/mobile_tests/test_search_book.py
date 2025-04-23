@@ -9,9 +9,9 @@ pytestmark = [
     allure.label("layer", 'mobile')
 ]
 
-@allure.epic('Поиск книги')
+@allure.epic('Поиск книги (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги')
+@allure.feature('Проверка поиска книги (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_search_book(android_management):
