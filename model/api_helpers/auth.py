@@ -1,8 +1,6 @@
 import json
-
 from allure_commons._allure import step
 from jsonschema import validate
-
 from model.schemas import schemas
 from utils.api_request_with_attach import litres_api_request
 

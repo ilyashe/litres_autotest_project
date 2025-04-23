@@ -3,6 +3,7 @@ from allure_commons.types import Severity
 from data.books import Book
 from model.api_helpers import basket, get_from_result
 
+
 @allure.epic('Удаление книги из корзины')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка удаления книги из корзины')

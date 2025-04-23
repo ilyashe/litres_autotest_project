@@ -3,6 +3,7 @@ from allure_commons.types import Severity
 from model.pages.mobile_pages.main_page import main_page
 from model.pages.mobile_pages.profile_page import profile_page
 
+
 @allure.epic('Изменение языка интерфейса')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка изменения языка интерфейса')

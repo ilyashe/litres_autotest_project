@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
-
 from data.books import Book
 from model.api_helpers import favorite, get_from_result
+
 
 @allure.epic('Удаление книги из избранного')
 @allure.label('owner', 'Ilya Shebanov')

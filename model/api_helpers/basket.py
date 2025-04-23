@@ -4,6 +4,7 @@ from jsonschema import validate
 from model.schemas import schemas
 from allure_commons._allure import step
 
+
 def put_add_book_to_basket(book):
     with step('Добавление книги в корзину'):
         result = litres_api_request(

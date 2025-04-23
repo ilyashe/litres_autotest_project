@@ -4,6 +4,7 @@ from data.books import Book
 from model.pages.mobile_pages.main_page import main_page
 from model.pages.mobile_pages.search_result_page import search_result_page
 
+
 @allure.epic('Поиск книги')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка поиска книги')

@@ -1,6 +1,7 @@
 import allure
 from mobile_config import config
 
+
 def attach_screenshot(browser):
     allure.attach(
         browser.driver.get_screenshot_as_png(),

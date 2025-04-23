@@ -1,6 +1,7 @@
 from utils.api_request_with_attach import litres_api_request
 from allure_commons._allure import step
 
+
 def put_add_book_to_favorite(book):
     with step('Добавление книги в избранное'):
         result = litres_api_request(

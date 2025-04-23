@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings
 import os
 from dotenv import load_dotenv
 
+
 Context = Literal['local_emulator', 'bstack']
 
 class Config(BaseSettings):

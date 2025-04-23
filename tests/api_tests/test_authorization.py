@@ -1,9 +1,9 @@
 import allure
 from allure_commons.types import Severity
-
 from data.users import User
 import os
 from model.api_helpers import auth
+
 
 @allure.epic('Авторизация')
 @allure.label('owner', 'Ilya Shebanov')

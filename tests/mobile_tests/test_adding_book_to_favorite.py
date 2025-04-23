@@ -6,6 +6,7 @@ from model.pages.mobile_pages.search_result_page import search_result_page
 from model.pages.mobile_pages.book_page import book_page
 from model.pages.mobile_pages.favorite_page import favorite_page
 
+
 @allure.epic('Добавление книги в избранное')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.feature('Проверка добавления книги в избранное')
