@@ -1,8 +1,7 @@
 from typing import Literal
-
+from utils import tools
 from pydantic_settings import BaseSettings
 import os
-from pathlib import Path
 from dotenv import load_dotenv
 
 Context = Literal['local_emulator', 'bstack']
@@ -22,10 +21,10 @@ class Config(BaseSettings):
 
 def load_config():
     context = os.getenv('context', 'bstack')
-    env_path = Path(f'.env.{context}')
+    env_path = tools.path_to_env(f'.env.{context}')
     load_dotenv(dotenv_path=env_path)
     if context == 'bstack':
-        load_dotenv(dotenv_path=Path('.env'), override=True)
+        load_dotenv(dotenv_path=tools.path_to_env('.env'), override=True)
 
     base_config = Config(_env_file=env_path)
     base_config.context = context
