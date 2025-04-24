@@ -5,11 +5,14 @@ from model.api_helpers import basket
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Корзина'),
+    allure.feature('Проверка добавления книги в корзину')
 ]
 
-@allure.epic('Добавление книги в корзину')
-@allure.feature('Проверка добавления книги в корзину')
+@allure.title(f'Добавление книги в корзину')
+@allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_to_basket():
@@ -25,9 +28,8 @@ def test_adding_book_to_basket():
     #THEN
     basket.put_add_book_to_basket_should_be_successful(result, book)
 
-@allure.epic('Добавление книги в корзину')
+@allure.title(f'Добавление книги с несуществующим ID в корзину')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в корзину')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_with_nonexistent_id_to_basket():
@@ -43,12 +45,11 @@ def test_adding_book_with_nonexistent_id_to_basket():
     #THEN
     basket.put_add_book_with_nonexistent_id_to_basket_should_be_without_book(result)
 
-@allure.epic('Добавление книги в корзину')
+@allure.title(f'Добавление книги с ID больше лимита в корзину')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в корзину')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
-def test_adding_book_with_too_long_id_to_basket():
+def test_adding_book_with_too_big_id_to_basket():
     book = Book(
         title='Пустые поезда 2022 года',
         author='Дмитрий Данилов',

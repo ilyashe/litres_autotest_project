@@ -5,12 +5,14 @@ from model.api_helpers import basket, get_from_result
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Корзина'),
+    allure.feature('Проверка удаления книги из корзины')
 ]
 
-@allure.epic('Удаление книги из корзины')
+@allure.title(f'Удаление книги из корзины')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка удаления книги из корзины')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_removing_book_from_basket():

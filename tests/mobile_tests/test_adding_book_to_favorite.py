@@ -8,7 +8,7 @@ from model.pages.mobile_pages.favorite_page import favorite_page
 
 
 pytestmark = [
-    allure.label("layer", 'mobile')
+    allure.label('layer', 'mobile')
 ]
 
 @allure.epic('Добавление книги в избранное (Mobile)')

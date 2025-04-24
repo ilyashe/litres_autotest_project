@@ -5,12 +5,14 @@ from model.api_helpers import favorite
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Избранное'),
+    allure.feature('Проверка добавления книги в избранное')
 ]
 
-@allure.epic('Добавление книги в избранное')
+@allure.title(f'Добавление книги в избранное')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в избранное')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_to_favorite():

@@ -5,12 +5,14 @@ from model.api_helpers import favorite, get_from_result
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Избранное'),
+    allure.feature('Проверка удаления книги из избранного')
 ]
 
-@allure.epic('Удаление книги из избранного')
+@allure.title(f'Удаление книги из избранного')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка удаления книги из избранного')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_removing_book_from_favorite():

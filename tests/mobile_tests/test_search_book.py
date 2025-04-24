@@ -6,7 +6,7 @@ from model.pages.mobile_pages.search_result_page import search_result_page
 
 
 pytestmark = [
-    allure.label("layer", 'mobile')
+    allure.label('layer', 'mobile')
 ]
 
 @allure.epic('Поиск книги (Mobile)')

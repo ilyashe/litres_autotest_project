@@ -5,12 +5,14 @@ from model.api_helpers import basket, get_from_result
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Корзина'),
+    allure.feature('Проверка статуса корзины')
 ]
 
-@allure.epic('Статус корзины')
+@allure.title(f'Получение статуса пустой корзины')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка статуса корзины')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_empty_basket_status():
@@ -20,9 +22,8 @@ def test_empty_basket_status():
     #THEN
     basket.get_basket_status_basket_should_be_empty(result)
 
-@allure.epic('Статус корзины')
+@allure.title(f'Получение статуса корзины с одной книгой')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка статуса корзины')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
 def test_basket_with_book_status():

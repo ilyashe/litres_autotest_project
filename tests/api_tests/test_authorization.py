@@ -6,12 +6,14 @@ from model.api_helpers import auth
 
 
 pytestmark = [
-    allure.label("layer", 'api')
+    allure.label('layer', 'api'),
+    allure.parent_suite('API'),
+    allure.suite('Авторизация'),
+    allure.feature('Проверка авторизации юзера')
 ]
 
-@allure.epic('Авторизация')
+@allure.title(f'Авторизация зарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка авторизации юзера')
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_registered_user():
@@ -28,9 +30,8 @@ def test_authorization_registered_user():
     #THEN
     auth.post_auth_user_should_be_authorized(result)
 
-@allure.epic('Авторизация')
+@allure.title(f'Авторизация незарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка авторизации юзера')
 @allure.tag('api')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_unregistered_user():

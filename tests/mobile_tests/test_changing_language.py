@@ -5,7 +5,7 @@ from model.pages.mobile_pages.profile_page import profile_page
 
 
 pytestmark = [
-    allure.label("layer", 'mobile')
+    allure.label('layer', 'mobile')
 ]
 
 @allure.epic('Изменение языка интерфейса (Mobile)')

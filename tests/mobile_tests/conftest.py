@@ -11,19 +11,19 @@ from appium import webdriver
 @pytest.fixture(scope='function')
 def android_management():
     options_dict = {
-        "app": config.app if config.app.startswith('bs://')
+        'app': config.app if config.app.startswith('bs://')
         else tools.path_to_apk(config.app),
-        "appPackage": "ru.litres.android",
-        "appActivity": "ru.litres.android.splash.MainSplashAlias",
-        "appWaitActivity": "ru.litres.android.splash.*"
+        'appPackage': 'ru.litres.android',
+        'appActivity': 'ru.litres.android.splash.MainSplashAlias',
+        'appWaitActivity': 'ru.litres.android.splash.*'
     }
 
     if config.udid:
-        options_dict["udid"] = config.udid
+        options_dict['udid'] = config.udid
     if config.deviceName:
-        options_dict["deviceName"] = config.deviceName
+        options_dict['deviceName'] = config.deviceName
     if config.platformVersion:
-        options_dict["platformVersion"] = config.platformVersion
+        options_dict['platformVersion'] = config.platformVersion
 
     options = UiAutomator2Options().load_capabilities(options_dict)
 

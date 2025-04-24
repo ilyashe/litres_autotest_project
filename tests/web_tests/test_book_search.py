@@ -47,7 +47,7 @@ def test_search_non_existent_book():
 
 @allure.epic('Поиск книги')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги под авторизованным юзером')
+@allure.feature('Проверка поиска книги')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_search_book_by_auth_user():
