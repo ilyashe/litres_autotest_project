@@ -8,12 +8,14 @@ from model.pages.mobile_pages.favorite_page import favorite_page
 
 
 pytestmark = [
-    allure.label('layer', 'mobile')
+    allure.label('layer', 'mobile'),
+    allure.suite('Mobile'),
+    allure.feature('Избранное'),
+    allure.story('Проверка добавления книги в избранное')
 ]
 
-@allure.epic('Добавление книги в избранное (Mobile)')
+@allure.title(f'Добавление книги в избранное (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в избранное (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_to_favorite(android_management):

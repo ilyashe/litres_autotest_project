@@ -9,12 +9,14 @@ from utils import tools
 
 
 pytestmark = [
-    allure.label("layer", 'web')
+    allure.label('layer', 'web'),
+    allure.suite('Web'),
+    allure.feature('Корзина'),
+    allure.story('Проверка удаления книги из корзины')
 ]
 
-@allure.epic('Удаление книги из корзины')
+@allure.title(f'Удаление книги из корзины')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка удаления книги из корзины')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_removing_book_from_basket():

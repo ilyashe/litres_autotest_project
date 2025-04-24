@@ -6,12 +6,14 @@ from model.pages.web_pages.search_page import search_page
 
 
 pytestmark = [
-    allure.label("layer", 'web')
+    allure.label('layer', 'web'),
+    allure.suite('Web'),
+    allure.feature('Поиск книги'),
+    allure.story('Проверка поиска книги')
 ]
 
-@allure.epic('Поиск книги')
+@allure.title(f'Поиск книги')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_search_book():
@@ -27,9 +29,8 @@ def test_search_book():
     #THEN
     search_page.should_find_book_with_title(book)
 
-@allure.epic('Поиск книги')
+@allure.title(f'Поиск несуществующей книги')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги')
 @allure.tag('web')
 @allure.severity(Severity.MINOR)
 def test_search_non_existent_book():
@@ -45,9 +46,8 @@ def test_search_non_existent_book():
     #THEN
     search_page.should_find_empty_result()
 
-@allure.epic('Поиск книги')
+@allure.title(f'Поиск книги под авторизованным юзером')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_search_book_by_auth_user():

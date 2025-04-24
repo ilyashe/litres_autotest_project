@@ -7,12 +7,14 @@ import os
 
 
 pytestmark = [
-    allure.label("layer", 'web')
+    allure.label('layer', 'web'),
+    allure.suite('Web'),
+    allure.feature('Авторизация'),
+    allure.story('Проверка логаута юзера')
 ]
 
-@allure.epic('Логаут')
+@allure.title(f'Логаут юзера')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка логаута юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_logout():
@@ -34,9 +36,8 @@ def test_logout():
     #THEN
     main_page.user_should_be_unauthorized()
 
-@allure.epic('Логаут')
+@allure.title(f'Логаут юзера с авторизацией через API')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка логаута юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_logout_with_api_auth():

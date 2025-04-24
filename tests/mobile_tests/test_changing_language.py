@@ -5,12 +5,14 @@ from model.pages.mobile_pages.profile_page import profile_page
 
 
 pytestmark = [
-    allure.label('layer', 'mobile')
+    allure.label('layer', 'mobile'),
+    allure.suite('Mobile'),
+    allure.feature('Язык интерфейса'),
+    allure.story('Проверка изменения языка интерфейса')
 ]
 
-@allure.epic('Изменение языка интерфейса (Mobile)')
+@allure.title('Изменение языка интерфейса (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка изменения языка интерфейса (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_changing_language(android_management):

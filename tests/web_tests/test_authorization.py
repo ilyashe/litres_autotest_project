@@ -7,12 +7,14 @@ import os
 
 
 pytestmark = [
-    allure.label("layer", 'web')
+    allure.label('layer', 'web'),
+    allure.suite('Web'),
+    allure.feature('Авторизация'),
+    allure.story('Проверка авторизации юзера')
 ]
 
-@allure.epic('Авторизация')
+@allure.title(f'Авторизация зарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_registered_user():
@@ -35,9 +37,8 @@ def test_authorization_registered_user():
     main_page.user_should_be_authorized(user)
 
 
-@allure.epic('Авторизация')
+@allure.title(f'Авторизация незарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_unregistered_user():
@@ -56,9 +57,8 @@ def test_authorization_unregistered_user():
     main_page.user_can_be_registered()
 
 
-@allure.epic('Авторизация')
+@allure.title(f'Авторизация зарегистрированного пользователя с неверным паролем')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка авторизации юзера')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
 def test_authorization_registered_user_with_wrong_password():

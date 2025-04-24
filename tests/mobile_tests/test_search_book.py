@@ -6,12 +6,14 @@ from model.pages.mobile_pages.search_result_page import search_result_page
 
 
 pytestmark = [
-    allure.label('layer', 'mobile')
+    allure.label('layer', 'mobile'),
+    allure.suite('Mobile'),
+    allure.feature('Поиск книги'),
+    allure.story('Проверка поиска книги')
 ]
 
-@allure.epic('Поиск книги (Mobile)')
+@allure.title(f'Поиск книги (Mobile)')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка поиска книги (Mobile)')
 @allure.tag('mobile')
 @allure.severity(Severity.NORMAL)
 def test_search_book(android_management):

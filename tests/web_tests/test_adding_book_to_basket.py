@@ -9,12 +9,14 @@ from utils import tools
 
 
 pytestmark = [
-    allure.label("layer", 'web')
+    allure.label('layer', 'web'),
+    allure.suite('Web'),
+    allure.feature('Корзина'),
+    allure.story('Проверка добавления книги в корзину')
 ]
 
-@allure.epic('Добавление книги в корзину')
+@allure.title(f'Добавление книги в корзину')
 @allure.label('owner', 'Ilya Shebanov')
-@allure.feature('Проверка добавления книги в корзину')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 def test_adding_book_to_basket():
