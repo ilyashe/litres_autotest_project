@@ -13,12 +13,26 @@
 - [x] Удаление книги из корзины
 - [x] Выход из аккаунта
 
+### API-тесты
+- [x] Авторизация пользователя(успешная и неуспешная)
+- [x] Поиск книги
+- [x] Добавление книги в корзину
+- [x] Проверка статуса корзины
+- [x] Удаление книги из корзины
+- [x] Добавление книги в Избранное
+- [x] Удаление книги из Избранного
+
+### Mobile-тесты
+- [x] Поиск книги
+- [x] Добавление книги в Избранное
+- [x] Изменение языка интерфейса
 ----
 ### Проект реализован с использованием:
-<img src="media/icons/python-original.svg" width="50"> <img src="media/icons/pytest.png" width="50"> <img src="media/icons/selene.png" width="50"> <img src="media/icons/selenoid.png" width="50"> <img src="media/icons/jenkins.png" width="50"> <img src="media/icons/allure_report.png" width="50"> <img src="media/icons/allure_testops.png" width="50"> <img src="media/icons/jira.png" width="50"> <img src="media/icons/tg.png" width="50">
+<img src="media/icons/python-original.svg" width="50"> <img src="media/icons/pytest.png" width="50"> <img src="media/icons/selene.png" width="50"> <img src="media/icons/appium.png" width="50"> <img src="media/icons/selenoid.png" width="50"> <img src="media/icons/jenkins.png" width="50"> <img src="media/icons/allure_report.png" width="50"> <img src="media/icons/allure_testops.png" width="50"> <img src="media/icons/jira.png" width="50"> <img src="media/icons/tg.png" width="50">
 
 - Язык: `Python`
 - Для написания UI-тестов используется фреймворк `Selene`, "обёртка" вокруг `Selenium WebDriver`
+- Для написания Mobile-тестов используется `Appium`
 - Библиотека модульного тестирования: `PyTest`
 - `Jenkins` выполняет удаленный запуск тестов.
 - `Selenoid` запускает браузер с тестами в контейнерах `Docker` (и записывает видео)
@@ -40,14 +54,27 @@ PASSWORD={password of your test litres account}
 
 UNREGISTERED_EMAIL={any unregistered email on litres}
 WRONG_PASSWORD=wrongpassword
+
+bstack_userName={your browserstack username}
+bstack_accessKey={your browserstack password}
+app={link to apk in browserstack}
 ```
 
-> Для локального запуска необходимо выполнить (ключ выбора версии --browser-version не обязателен):
+> Для локального запуска с дефолтными настройками необходимо выполнить:
 ```
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pytest -s . --browser_version=128.0
+poetry install --no-root
+poetry env activate
+poetry run pytest -s .
+```
+> Для web тестов можно задать версию браузера ("128.0" по умолчанию и "127.0""):
+```
+$env:browser_version="127.0"
+poetry run pytest -s .
+```
+> Для mobile тестов можно выбрать, где прогнать тесты ("bstack" - browserstack (по умолчанию) и "local_emulator"):
+```
+$env:context = "local_emulator" 
+poetry run pytest -s .
 ```
 
 ----
@@ -56,7 +83,8 @@ pytest -s . --browser_version=128.0
 
 #### Параметры сборки
 
-- `BROWSER_VERSION` - версия браузера (браузер `Chrome`)
+- `MODULE` - Web, API или Mobile тесты
+- `BROWSER_VERSION` - версия браузера (браузер `Chrome`) для Web тестов
 - `COMMENT` - комментарий
 
 
@@ -64,10 +92,11 @@ pytest -s . --browser_version=128.0
 
 1. Открыть [проект](https://jenkins.autotests.cloud/job/litres_autotest_project/)
 2. Выбрать пункт `Build with Parameters`
-3. Указать версию браузера
-4. Указать комментарий
-5. Нажать кнопку `Build`
-6. Результат запуска сборки можно посмотреть в отчёте Allure
+3. Выбрать модуль (Web, API или Mobile тесты)
+4. Указать версию браузера (только для Web тестов)
+5. Указать комментарий
+6. Нажать кнопку `Build`
+7. Результат запуска сборки можно посмотреть в отчёте Allure
 
 ----
 ### Allure отчет
@@ -115,3 +144,8 @@ pytest -s . --browser_version=128.0
 ----
 ### Пример видео прохождения ui-автотеста
 ![autotest_gif](media/images/autotest.gif)
+
+----
+
+### Пример видео прохождения mobile-автотеста
+![autotest_gif](media/images/mobile_autotest.gif)

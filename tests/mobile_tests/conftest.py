@@ -29,9 +29,9 @@ def android_management():
 
     if config.context == 'bstack':
         options.set_capability('bstack:options', {
-            'projectName': 'First Python project',
-            'buildName': 'browserstack-build-1',
-            'sessionName': 'BStack first_test',
+            'projectName': 'Litres autotest project',
+            'buildName': 'litres-build-1',
+            'sessionName': 'BStack litres_test',
             'userName': config.bstack_userName,
             'accessKey': config.bstack_accessKey,
         })
