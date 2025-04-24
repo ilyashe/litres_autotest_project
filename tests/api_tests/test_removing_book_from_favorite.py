@@ -6,9 +6,9 @@ from model.api_helpers import favorite, get_from_result
 
 pytestmark = [
     allure.label('layer', 'api'),
-    allure.parent_suite('API'),
-    allure.suite('Избранное'),
-    allure.feature('Проверка удаления книги из избранного')
+    allure.suite('API'),
+    allure.feature('Избранное'),
+    allure.story('Проверка удаления книги из избранного')
 ]
 
 @allure.title(f'Удаление книги из избранного')

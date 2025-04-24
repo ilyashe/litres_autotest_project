@@ -6,9 +6,9 @@ from model.api_helpers import basket, get_from_result
 
 pytestmark = [
     allure.label('layer', 'api'),
-    allure.parent_suite('API'),
-    allure.suite('Корзина'),
-    allure.feature('Проверка статуса корзины')
+    allure.suite('API'),
+    allure.feature('Корзина'),
+    allure.story('Проверка статуса корзины')
 ]
 
 @allure.title(f'Получение статуса пустой корзины')

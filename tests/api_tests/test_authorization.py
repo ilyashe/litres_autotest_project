@@ -7,9 +7,9 @@ from model.api_helpers import auth
 
 pytestmark = [
     allure.label('layer', 'api'),
-    allure.parent_suite('API'),
-    allure.suite('Авторизация'),
-    allure.feature('Проверка авторизации юзера')
+    allure.suite('API'),
+    allure.feature('Авторизация'),
+    allure.story('Проверка авторизации юзера')
 ]
 
 @allure.title(f'Авторизация зарегистрированного пользователя')

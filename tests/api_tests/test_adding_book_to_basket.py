@@ -6,9 +6,9 @@ from model.api_helpers import basket
 
 pytestmark = [
     allure.label('layer', 'api'),
-    allure.parent_suite('API'),
-    allure.suite('Корзина'),
-    allure.feature('Проверка добавления книги в корзину')
+    allure.suite('API'),
+    allure.feature('Корзина'),
+    allure.story('Проверка добавления книги в корзину')
 ]
 
 @allure.title(f'Добавление книги в корзину')
