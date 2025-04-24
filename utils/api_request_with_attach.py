@@ -38,15 +38,16 @@ def log_to_allure_api(result):
     )
 
     allure.attach(
-        body=json.dumps(result.json(), indent=4, ensure_ascii=True) if result.text else '[Empty]',
+        body=json.dumps(json.loads(mask_sensitive_data(result.text)),
+                        indent=4, ensure_ascii=False) if result.text else '[Empty]',
         name='Response',
-        attachment_type=AttachmentType.JSON,
-        extension='json'
+        attachment_type=AttachmentType.TEXT,
+        extension='txt'
     )
 
-    cookies_dict = {cookie.name: cookie.value for cookie in result.cookies}
+    cookies_dict = mask_sensitive_data_cookies(result.cookies)
     allure.attach(
-        body=json.dumps(cookies_dict, indent=4),
+        body=json.dumps(cookies_dict, indent=4, ensure_ascii=False),
         name='Cookies',
         attachment_type=AttachmentType.TEXT,
         extension='json'
@@ -63,10 +64,11 @@ def log_to_console_api(result):
             ==== HTTP Response ====
             Status Code: {result.status_code}
             Body:
-            {json.dumps(json.loads(result.text), indent=4, ensure_ascii=False) if result.text else "None"}
+            {json.dumps(json.loads(mask_sensitive_data(result.text)),
+                        indent=4, ensure_ascii=False) if result.text else "None"}
 
             ==== Cookies ====
-            {'\n'.join([f'{c.name} = {c.value}' for c in result.cookies])}
+            {'\n'.join([f'{key} = {value}' for key, value in mask_sensitive_data_cookies(result.cookies).items()])}
             '''
 
     logging.info(log_message)
@@ -78,6 +80,16 @@ def mask_sensitive_data(body):
             body_dict['login'] = '********'
         if 'password' in body_dict:
             body_dict['password'] = '********'
+        if 'sid' in body_dict.get('payload', {}).get('data', {}):
+            body_dict['payload']['data']['sid'] = '********'
+        if '__Secure-session_context' in body_dict:
+            body_dict['__Secure-session_context'] = '********'
         return json.dumps(body_dict, indent=4, ensure_ascii=False)
     except (json.JSONDecodeError, TypeError):
         return body
+
+def mask_sensitive_data_cookies(cookies):
+    cookies_dict = cookies.get_dict()
+    if '__Secure-session_context' in cookies_dict:
+        cookies_dict['__Secure-session_context'] = '********'
+    return cookies_dict
