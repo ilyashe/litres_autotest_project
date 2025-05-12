@@ -7,17 +7,6 @@ import allure
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-# Настройка сессии с retry
-session = requests.Session()
-retries = Retry(
-    total=3,
-    backoff_factor=1.5,
-    status_forcelist=[500, 502, 503, 504],
-    allowed_methods=["GET", "POST", "PUT", "DELETE"]
-)
-adapter = HTTPAdapter(max_retries=retries)
-session.mount('https://', adapter)
-session.mount('http://', adapter)
 
 def litres_api_request(path, method='POST', *args, **kwargs):
     with step('API Request'):
@@ -26,7 +15,19 @@ def litres_api_request(path, method='POST', *args, **kwargs):
 
 
         kwargs['timeout'] = (5, 10)
-        result = requests.request(url=full_url, method=method, *args, **kwargs)
+
+        temp_session = requests.Session()
+        retries = Retry(
+            total=3,
+            backoff_factor=1.5,
+            status_forcelist=[500, 502, 503, 504],
+            allowed_methods=["GET", "POST", "PUT", "DELETE"]
+        )
+        adapter = HTTPAdapter(max_retries=retries)
+        temp_session.mount('https://', adapter)
+        temp_session.mount('http://', adapter)
+
+        result = temp_session.request(url=full_url, method=method, *args, **kwargs)
 
         log_to_allure_api(result)
         log_to_console_api(result)
