@@ -14,11 +14,11 @@ def litres_api_request(path, method='POST', *args, **kwargs):
         full_url = base_url + path
 
 
-        kwargs['timeout'] = (5, 10)
+        kwargs['timeout'] = (2, 5)
 
         temp_session = requests.Session()
         retries = Retry(
-            total=3,
+            total=5,
             backoff_factor=1.5,
             status_forcelist=[500, 502, 503, 504],
             allowed_methods=["GET", "POST", "PUT", "DELETE"]
