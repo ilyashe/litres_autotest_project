@@ -83,7 +83,7 @@ poetry run pytest -s .
 
 #### Параметры сборки
 
-- `MODULE` - Web, API или Mobile тесты
+- `MODULE` - Web, API или Mobile тесты. All - все
 - `BROWSER_VERSION` - версия браузера (браузер `Chrome`) для Web тестов
 - `COMMENT` - комментарий
 
@@ -102,9 +102,9 @@ poetry run pytest -s .
 ### Allure отчет
 
 
-#### Общие результаты
+#### Общие результаты прохождения UI тестов
 ![This is an image](media/images/allure_report_overview.png)
-#### Список тест кейсов и пример отчета о прохождении теста
+#### Список UI тест кейсов и пример отчета о прохождении теста
 ![This is an image](media/images/allure_report_behaviors.png)
 
 ----
@@ -119,7 +119,11 @@ poetry run pytest -s .
 
 ![This is an image](media/images/allure_testops_launches.png)
 
-#### Тест кейсы
+#### Фильтры для выбора модуля по тегу
+
+![This is an image](media/images/allure_testops_filters.png)
+
+#### Пример тест кейса
 
 ![This is an image](media/images/allure_testops_test_cases.png)
 
