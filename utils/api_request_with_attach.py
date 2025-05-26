@@ -13,21 +13,20 @@ def litres_api_request(path, method='POST', *args, **kwargs):
         base_url = 'https://api.litres.ru/foundation/api/'
         full_url = base_url + path
 
-
         kwargs['timeout'] = (2, 5)
 
-        temp_session = requests.Session()
-        retries = Retry(
-            total=5,
-            backoff_factor=1.5,
-            status_forcelist=[500, 502, 503, 504],
-            allowed_methods=["GET", "POST", "PUT", "DELETE"]
-        )
-        adapter = HTTPAdapter(max_retries=retries)
-        temp_session.mount('https://', adapter)
-        temp_session.mount('http://', adapter)
+        with requests.Session() as temp_session:
+            retries = Retry(
+                total=5,
+                backoff_factor=1.5,
+                status_forcelist=[500, 502, 503, 504],
+                allowed_methods=["GET", "POST", "PUT", "DELETE"]
+            )
+            adapter = HTTPAdapter(max_retries=retries)
+            temp_session.mount('https://', adapter)
+            temp_session.mount('http://', adapter)
 
-        result = temp_session.request(url=full_url, method=method, *args, **kwargs)
+            result = temp_session.request(url=full_url, method=method, *args, **kwargs)
 
         log_to_allure_api(result)
         log_to_console_api(result)
