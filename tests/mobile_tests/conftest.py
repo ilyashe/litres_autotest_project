@@ -4,7 +4,7 @@ import allure_commons
 from appium.options.android import UiAutomator2Options
 from selene import browser, support
 from mobile_config import config
-from utils import mobile_attach, tools
+from utils import mobile_attach, paths
 from appium import webdriver
 
 
@@ -12,7 +12,7 @@ from appium import webdriver
 def android_management():
     options_dict = {
         'app': config.app if config.app.startswith('bs://')
-        else tools.path_to_apk(config.app),
+        else paths.path_to_apk(config.app),
         'appPackage': 'ru.litres.android',
         'appActivity': 'ru.litres.android.splash.MainSplashAlias',
         'appWaitActivity': 'ru.litres.android.splash.*'

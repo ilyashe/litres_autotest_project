@@ -1,5 +1,5 @@
 from typing import Literal
-from utils import tools
+from utils import paths
 from pydantic_settings import BaseSettings
 import os
 from dotenv import load_dotenv
@@ -22,10 +22,10 @@ class Config(BaseSettings):
 
 def load_config():
     context = os.getenv('context', 'bstack')
-    env_path = tools.path_to_env(f'.env.{context}')
+    env_path = paths.path_to_env(f'.env.{context}')
     load_dotenv(dotenv_path=env_path)
     if context == 'bstack':
-        load_dotenv(dotenv_path=tools.path_to_env('.env'), override=True)
+        load_dotenv(dotenv_path=paths.path_to_env('.env'), override=True)
 
     base_config = Config(_env_file=env_path)
     base_config.context = context
