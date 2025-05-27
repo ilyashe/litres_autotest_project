@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
-from litres.pages.mobile_pages.main_page import main_page
-from litres.pages.mobile_pages.profile_page import profile_page
+from litres.ui.mobile_pages.main_page import main_page
+from litres.ui.mobile_pages.profile_page import profile_page
 
 
 pytestmark = [

@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from litres.pages.mobile_pages.main_page import main_page
-from litres.pages.mobile_pages.search_result_page import search_result_page
+from litres.ui.mobile_pages.main_page import main_page
+from litres.ui.mobile_pages.search_result_page import search_result_page
 
 
 pytestmark = [

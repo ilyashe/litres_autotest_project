@@ -1,11 +1,11 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from litres.pages.web_pages.main_page import main_page
-from litres.pages.web_pages.search_page import search_page
-from litres.pages.web_pages.book_page import book_page
-from litres.pages.web_pages.basket_page import basket_page
-from utils import tools
+from litres.ui.web_pages.main_page import main_page
+from litres.ui.web_pages.search_page import search_page
+from litres.ui.web_pages.book_page import book_page
+from litres.ui.web_pages.basket_page import basket_page
+from litres.ui import helper_methods
 
 
 pytestmark = [
@@ -30,7 +30,7 @@ def test_adding_book_to_basket():
     #WHEN
     main_page.search_book(book)
     search_page.open_book()
-    tools.open_new_window(window_number=1)
+    helper_methods.open_new_window(window_number=1)
     book_page.add_book_to_basket()
     main_page.close_modal()
     main_page.open_basket()
