@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import Severity
 from data.users import User
 import os
-from litres.api_helpers import auth
+from litres.api import auth
 
 
 pytestmark = [

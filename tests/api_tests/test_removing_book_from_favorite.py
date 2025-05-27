@@ -1,7 +1,7 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from litres.api_helpers import favorite, get_from_result
+from litres.api import favorite, get_from_result
 
 
 pytestmark = [
