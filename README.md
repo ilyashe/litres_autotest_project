@@ -44,9 +44,9 @@
 ### Локальный запуск
 > Перед запуском в корне проекта создать файл .env с содержимым:
 ```
-SELENOID_LOGIN=user1
-SELENOID_PASS=1234
-SELENOID_URL=selenoid.autotests.cloud
+SELENOID_LOGIN={selenoid login}
+SELENOID_PASS={selenoid password}
+SELENOID_URL={selenoid server}
 
 EMAIL={email of your test litres account}
 PASSWORD={password of your test litres account}
