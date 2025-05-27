@@ -28,7 +28,7 @@ def test_adding_book_to_basket():
     #THEN
     basket.put_add_book_to_basket_should_be_successful(result, book)
 
-@allure.title(f'Добавление книги с несуществующим ID в корзину')
+@allure.title('Добавление книги с несуществующим ID в корзину')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
@@ -45,7 +45,7 @@ def test_adding_book_with_nonexistent_id_to_basket():
     #THEN
     basket.put_add_book_with_nonexistent_id_to_basket_should_be_without_book(result)
 
-@allure.title(f'Добавление книги с ID больше лимита в корзину')
+@allure.title('Добавление книги с ID больше лимита в корзину')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)

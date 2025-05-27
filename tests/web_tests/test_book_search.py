@@ -13,7 +13,7 @@ pytestmark = [
     allure.story('Проверка поиска книги')
 ]
 
-@allure.title(f'Поиск книги')
+@allure.title('Поиск книги')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
@@ -30,7 +30,7 @@ def test_search_book():
     #THEN
     search_page.should_find_book_with_title(book)
 
-@allure.title(f'Поиск несуществующей книги')
+@allure.title('Поиск несуществующей книги')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.MINOR)
@@ -47,7 +47,7 @@ def test_search_non_existent_book():
     #THEN
     search_page.should_find_empty_result()
 
-@allure.title(f'Поиск книги под авторизованным юзером')
+@allure.title('Поиск книги под авторизованным юзером')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)

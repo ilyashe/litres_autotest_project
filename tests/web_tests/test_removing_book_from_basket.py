@@ -15,7 +15,7 @@ pytestmark = [
     allure.story('Проверка удаления книги из корзины')
 ]
 
-@allure.title(f'Удаление книги из корзины')
+@allure.title('Удаление книги из корзины')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)

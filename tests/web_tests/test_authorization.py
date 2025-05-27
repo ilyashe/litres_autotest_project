@@ -13,7 +13,7 @@ pytestmark = [
     allure.story('Проверка авторизации юзера')
 ]
 
-@allure.title(f'Авторизация зарегистрированного пользователя')
+@allure.title('Авторизация зарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
@@ -37,7 +37,7 @@ def test_authorization_registered_user():
     main_page.user_should_be_authorized(user)
 
 
-@allure.title(f'Авторизация незарегистрированного пользователя')
+@allure.title('Авторизация незарегистрированного пользователя')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
@@ -57,7 +57,7 @@ def test_authorization_unregistered_user():
     main_page.user_can_be_registered()
 
 
-@allure.title(f'Авторизация зарегистрированного пользователя с неверным паролем')
+@allure.title('Авторизация зарегистрированного пользователя с неверным паролем')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)

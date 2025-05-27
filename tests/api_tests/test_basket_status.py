@@ -11,7 +11,7 @@ pytestmark = [
     allure.story('Проверка статуса корзины')
 ]
 
-@allure.title(f'Получение статуса пустой корзины')
+@allure.title('Получение статуса пустой корзины')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)
@@ -22,7 +22,7 @@ def test_empty_basket_status():
     #THEN
     basket.get_basket_status_basket_should_be_empty(result)
 
-@allure.title(f'Получение статуса корзины с одной книгой')
+@allure.title('Получение статуса корзины с одной книгой')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)

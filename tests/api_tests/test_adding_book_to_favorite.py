@@ -11,7 +11,7 @@ pytestmark = [
     allure.story('Проверка добавления книги в избранное')
 ]
 
-@allure.title(f'Добавление книги в избранное')
+@allure.title('Добавление книги в избранное')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('api')
 @allure.severity(Severity.NORMAL)

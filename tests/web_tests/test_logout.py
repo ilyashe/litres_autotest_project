@@ -13,7 +13,7 @@ pytestmark = [
     allure.story('Проверка логаута юзера')
 ]
 
-@allure.title(f'Логаут юзера')
+@allure.title('Логаут юзера')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
@@ -36,7 +36,7 @@ def test_logout():
     #THEN
     main_page.user_should_be_unauthorized()
 
-@allure.title(f'Логаут юзера с авторизацией через API')
+@allure.title('Логаут юзера с авторизацией через API')
 @allure.label('owner', 'Ilya Shebanov')
 @allure.tag('web')
 @allure.severity(Severity.CRITICAL)
