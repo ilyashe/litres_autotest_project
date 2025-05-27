@@ -1,6 +1,6 @@
 from selene import browser, have, command
 import allure
-from model.api_helpers import auth, get_from_result
+from litres.api_helpers import auth, get_from_result
 
 
 class MainPage:

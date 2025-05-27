@@ -1,8 +1,8 @@
 import allure
 from allure_commons.types import Severity
 from data.books import Book
-from model.pages.web_pages.main_page import main_page
-from model.pages.web_pages.search_page import search_page
+from litres.pages.web_pages.main_page import main_page
+from litres.pages.web_pages.search_page import search_page
 from data.users import User
 import os
 
